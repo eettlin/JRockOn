@@ -17,7 +17,7 @@ public class PlayAreaOne extends GContainer {
 
 	public PlayAreaOne() {
 		setSize(1000, 800);
-		BufferedImage bg = ImageCache.forClass(TowerGame.class).get("bg2.png");
+		BufferedImage bg = ImageCache.forClass(TowerGame.class).get("bg2b.png");
 		GSprite gs = new GSprite(bg);
 		setBackgroundSprite(gs);
 
@@ -40,7 +40,7 @@ public class PlayAreaOne extends GContainer {
 				           			"enemies/terry/t", 0, 9, ".png");
 
 		Enemy e = new Enemy(enemyImages);
-		e.setScale(.75);
+		e.setScale(.95);
 		
 		this.add(e);
 	}
