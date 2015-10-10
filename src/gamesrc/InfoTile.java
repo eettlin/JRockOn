@@ -20,11 +20,11 @@ public class InfoTile extends Tile {
 	public void setInfoTile(int tileNumber) {
 
 		GSprite none_img = new GSprite(
-				ImageCache.getImage("buttons/btnnone_turret.png"));
+				ImageCache.getImage("buttons/infotile.png"));
 		GSprite hover_img = new GSprite(
-				ImageCache.getImage("buttons/btnhover_turret.png"));
+				ImageCache.getImage("buttons/infotile.png"));
 		GSprite pressed_img = new GSprite(
-				ImageCache.getImage("buttons/btnpressed_turret.png"));
+				ImageCache.getImage("buttons/infotile.png"));
 
 		setStateSprite(ButtonState.NONE, none_img);
 		setStateSprite(ButtonState.HOVERED, hover_img);
@@ -34,13 +34,12 @@ public class InfoTile extends Tile {
 		tileIcon.setScale(.8);
 		addAtCenter(tileIcon);
 
-		addListener(new ButtonListener() {
+/*		addListener(new ButtonListener() {
 			@Override
 			public void mouseClicked(Context context) {
 				System.out.print(true);
 			}
-
-		});
+		});*/
 	}
 
 }
