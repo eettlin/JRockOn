@@ -10,14 +10,17 @@ import jgame.ImageCache;
 import jgame.listener.ButtonListener;
 
 public class InfoTile extends Tile {
-    private Image image = null;
+	private Image image = null;
+    private int tileNumber = 0;
 	public InfoTile(Image img, int tileNumber) {
 		super(img, tileNumber);
 		image = img;
+		this.tileNumber = tileNumber;
 		setInfoTile(tileNumber);
+		setMenuTile();
 	}
 
-	public void setInfoTile(int tileNumber) {
+	public void setInfoTile(final int tileNumber) {
 
 		GSprite none_img = new GSprite(
 				ImageCache.getImage("buttons/infotile.png"));
@@ -31,15 +34,21 @@ public class InfoTile extends Tile {
 		setStateSprite(ButtonState.PRESSED, pressed_img);
 
 		GSprite tileIcon = new GSprite(image);
-		tileIcon.setScale(.8);
-		addAtCenter(tileIcon);
+		// tileIcon.setScale(.3);
+		// addAtCenter(tileIcon);
 
-/*		addListener(new ButtonListener() {
+		addListener(new ButtonListener() {
+
 			@Override
 			public void mouseClicked(Context context) {
-				System.out.print(true);
+				System.out.print(tileNumber);
 			}
-		});*/
+		});
+
+	}
+
+	public void setMenuTile() {
+
 	}
 
 }
