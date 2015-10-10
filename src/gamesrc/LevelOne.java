@@ -12,6 +12,9 @@ public class LevelOne extends GObject {
 	private MenuArea menuArea = new MenuArea();
 	private InfoArea infoArea = new InfoArea();
     private boolean settingTurret = false;
+    private Bank lifeBank = new Bank(100);
+    private Bank moneyBank = new Bank(200);
+    
 	public LevelOne() {
 		setSize(1100, 900);
 		// Set play area
@@ -29,6 +32,8 @@ public class LevelOne extends GObject {
 		
 	}
 
+	//  Turrets  ++++++++++++++++++++++++++++++++++++++++++++++
+	
 	public void initializeTurret(int tn) {
 		//If setting turret--don't allow another turret to be created
 		if(settingTurret){
@@ -40,22 +45,24 @@ public class LevelOne extends GObject {
 		t.setScale(.5);
 
 		this.playAreaOne.addAtCenter(t);
-		
+		//  Create a new Turret and set radius to turret fire range
 		final RangeRing rr = new RangeRing(t.getFireRange());
 		this.playAreaOne.addAtCenter(rr);		
 		final MouseLocationController c = new MouseLocationController(); 
 		t.addController(c); // attach controller to turret t
-		rr.addController(c);
+		rr.addController(c); // attach controller to range ring
 		
-		
+		// When turret is dropped, 
 		final LocalClickListener dropListener = new LocalClickListener(){
 			//@Override
 			public void invoke(GObject target, Context context){
+			  ((Turret) target).setIsSet(true);
 			   target.removeController(c);
 			   rr.removeController(c);
 			   rr.removeSelf();
 			   target.removeListener(this);
 			   settingTurret = false;
+			   
 			}
 		};
 		t.addListener(dropListener);
@@ -82,6 +89,8 @@ public class LevelOne extends GObject {
 			return null;
 		}
 	}
+	
+	
 	
 	
 }

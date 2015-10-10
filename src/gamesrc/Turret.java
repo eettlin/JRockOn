@@ -1,6 +1,7 @@
 package gamesrc;
 
 import java.awt.Image;
+import java.awt.Point;
 import java.util.List;
 
 import jgame.Context;
@@ -14,6 +15,7 @@ import jgame.listener.FrameListener;
 public abstract class Turret extends GSprite {
 	private int coolDown = 10;
     private int turretNumber = 0;
+    private boolean isSet = false;
 	public Turret(Image img, int tn) {
 		super(img);
 		super.setAnchorCenter();
@@ -34,7 +36,7 @@ public abstract class Turret extends GSprite {
 					}
 				}
 
-				if (coolDown-- < 0) {
+				if (coolDown-- < 0 && isSet) {
 					fireBullet();
 					coolDown = 24;
 				}
@@ -49,11 +51,12 @@ public abstract class Turret extends GSprite {
 	public abstract int getFireCoolDown();
 	public abstract int getTurretValue();
 	public abstract double getBulletSpeed();
-	public abstract Bullet createBullet();
+	public abstract Bullet createBullet(Point p);
+	
 	
 	public void fireBullet() {
 		// create an instance of BulletOne
-		final Bullet b = createBullet();
+		final Bullet b = createBullet(this.getPosition());
 		switch(turretNumber){
 		case 1:
 			b.setScale(1);
@@ -95,6 +98,14 @@ public abstract class Turret extends GSprite {
 		b.moveAtAngle(getHeight() / 2 + 10, getRotation());
 
 		this.addSibling(b);
+	}
+	
+	public void setIsSet(boolean isSet){
+		this.isSet = isSet;
+	}
+	
+	public Point getPosition(){
+		return new Point((int)getX(), (int)getY());
 	}
 
 }

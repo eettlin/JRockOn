@@ -48,7 +48,7 @@ public class InfoTile extends Tile {
 	}
 
 	public void setMenuTile() {
-
+		// Override setMenuTile in super class
 	}
 
 }

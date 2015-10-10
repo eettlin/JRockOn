@@ -1,6 +1,7 @@
 package gamesrc;
 
 import java.awt.Image;
+import java.awt.Point;
 
 import jgame.ImageCache;
 
@@ -15,7 +16,7 @@ public class TurretThree extends Turret {
 		super(img, 3);
 	}
 
-	public Bullet createBullet(){
+	public Bullet createBullet(Point p){
 		  return new Bullet(ImageCache.getImage("bullets/b3.png"));
 	}
 
