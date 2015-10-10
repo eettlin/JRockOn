@@ -19,10 +19,8 @@ public class Bullet extends GSprite {
 			public void invoke(GObject target, Context context) {
 				lifeSpan--;
 				((Bullet) target).setLifeSpan(lifeSpan);
-				
 			}	
 		};
-		
 		addListener(fl);
 		if(!lifeLeft()){
 			removeListener(fl);

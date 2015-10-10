@@ -22,6 +22,8 @@ public class MenuArea extends GContainer {
 		for (int i = 0; i < MAX_TILES; i++) {
 			setTile(i);
 		}
+		
+		
 	}
 
 	List<Image> tileImages = ImageCache.getSequentialImages("icons/t", 1, 7, "icon.png");
@@ -34,4 +36,6 @@ public class MenuArea extends GContainer {
 		tile.setX(i*145 + 20);
 		add(tile);
 	}
+	
+	
 }

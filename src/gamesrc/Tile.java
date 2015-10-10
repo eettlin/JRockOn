@@ -10,9 +10,18 @@ import jgame.ImageCache;
 import jgame.listener.ButtonListener;
 
 public class Tile extends GButton {
+	private Image image = null;
+	private int turretNumber = 0;
 	public Tile(Image image, final int tn) {
+		this.image = image;
+		turretNumber = tn;
 		setSize(90,90);
+		setMenuTile();
 		
+	}
+	
+	public void setMenuTile(){
+
 		GSprite none_img = new GSprite(ImageCache.getImage("buttons/btnnone_turret.png"));
 		GSprite hover_img = new GSprite(ImageCache.getImage("buttons/btnhover_turret.png"));
 		GSprite pressed_img = new GSprite(ImageCache.getImage("buttons/btnpressed_turret.png"));
@@ -28,7 +37,7 @@ public class Tile extends GButton {
 		addListener(new ButtonListener(){
 			@Override
 			public void mouseClicked(Context context){
-				getFirstAncestorOf(LevelOne.class ).initializeTurret(tn);
+				getFirstAncestorOf(LevelOne.class ).initializeTurret(turretNumber);
 			}
 			
 		});
