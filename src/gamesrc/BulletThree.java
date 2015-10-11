@@ -24,11 +24,9 @@ public class BulletThree extends Bullet {
 			}
 		});
 	}
-	public void setStartPosition(Point p) {
-		startPosition = p;
-	}
 
-	public Point getStartPosition1() {
+
+	public Point getStartPosition() {
 		return startPosition;
 	}
 
@@ -46,8 +44,12 @@ public class BulletThree extends Bullet {
 		return d;
 	}
 
-	public Point getStartPosition() {
-		return startPosition;
+
+	@Override
+	public void setStartPosition(Point p) {
+        startPosition = p;		
 	}
+
+
 
 }

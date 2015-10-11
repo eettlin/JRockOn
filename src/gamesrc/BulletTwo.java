@@ -28,11 +28,6 @@ public class BulletTwo extends Bullet {
 
 	public void setStartPosition(Point p) {
 		startPosition = p;
-		currentPosition = p;
-	}
-
-	public Point getStartPosition1() {
-		return startPosition;
 	}
 
 	public Point getCurrentPosition() {

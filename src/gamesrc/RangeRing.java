@@ -4,9 +4,10 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import jgame.GButton;
 import jgame.GObject;
 
-public class RangeRing extends GObject {
+public class RangeRing extends GButton {
 	private double radius = 0;
 
 	public RangeRing(double radius) {

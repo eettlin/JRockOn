@@ -7,7 +7,7 @@ import jgame.ImageCache;
 
 public class TurretOne extends Turret {
 	private int turretNumber = 1;
-	private double fireRange = 100;
+	private double fireRange = 400;
 	private int fireDelay = 0;
 	private int fireCoolDown = 24;
 	private double bulletSpeed = 12;

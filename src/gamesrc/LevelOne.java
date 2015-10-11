@@ -6,6 +6,7 @@ import jgame.Context;
 import jgame.GObject;
 import jgame.ImageCache;
 import jgame.controller.MouseLocationController;
+import jgame.listener.ButtonListener;
 import jgame.listener.LocalClickListener;
 
 public class LevelOne extends GObject {
@@ -44,7 +45,6 @@ public class LevelOne extends GObject {
 		}
 		settingTurret = true;
 		Turret t = getTurret(tn);
-		
 		t.setScale(.5);
 
 		this.playAreaOne.addAtCenter(t);
@@ -62,7 +62,7 @@ public class LevelOne extends GObject {
 			  ((Turret) target).setIsSet(true);
 			   target.removeController(c);
 			   rr.removeController(c);
-			   rr.removeSelf();
+			   rr.setVisible(false);
 			   ((Turret) target).setStartPosition(new Point((int)target.getX(),(int)target.getY()));
 			   target.removeListener(this);
 			   settingTurret = false;
@@ -70,6 +70,16 @@ public class LevelOne extends GObject {
 			}
 		};
 		t.addListener(dropListener);
+		//  +++++++++++++++++++++++++++++++++++++++++++++++  Doesnt work
+		rr.addListener(new ButtonListener(){
+			@Override
+			public void mouseOver(Context context){
+				//getFirstAncestorOf(LevelOne.class ).initializeTurret(turretNumber);
+				rr.setVisible(true);
+			}
+			
+		});
+		
 	}
 
 	public Turret getTurret(int tn) {
