@@ -18,16 +18,21 @@ public class BulletOne extends Bullet {
 		currentPosition = p;
 		this.addListener(new FrameListener() {
 			public void invoke(GObject target, Context context) {
-              if(getDistanceFromStart() > 200){
-            	  target.removeSelf(); //++++++++++++++++++++++++  Causing Crash
-              }
+				if (getDistanceFromStart() > 200) {
+					target.removeSelf(); // ++++++++++++++++++++++++ Causing
+											// Crash
+				}
 			}
 		});
-		
 
 	}
 
-	public Point getStartPosition() {
+	public void setStartPosition(Point p) {
+		startPosition = p;
+		System.out.println("In b one setStartPos " + startPosition);
+	}
+
+	public Point getStartPosition1() {
 		return startPosition;
 	}
 
@@ -39,9 +44,14 @@ public class BulletOne extends Bullet {
 	public double getDistanceFromStart() {
 		double dx = startPosition.getX() - getCurrentPosition().getX();
 		double dy = startPosition.getY() - getCurrentPosition().getY();
-		
-	    System.out.println(" spx = " + startPosition.getX() + ",  spy = " + startPosition.getY());
-		return Math.sqrt(dx * dx + dy * dy);
+
+		double d = Math.sqrt(dx * dx + dy * dy);
+		//System.out.println("d = " + d);
+		return d;
+	}
+
+	public Point getStartPosition() {
+		return startPosition;
 	}
 
 }

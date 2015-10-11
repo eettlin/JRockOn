@@ -16,6 +16,7 @@ public abstract class Turret extends GSprite {
 	private int coolDown = 10;
     private int turretNumber = 0;
     private boolean isSet = false;
+    
 	public Turret(Image img, int tn) {
 		super(img);
 		super.setAnchorCenter();
@@ -44,19 +45,20 @@ public abstract class Turret extends GSprite {
 		});
 	}
 
-	
     public abstract int getTurretNumber();
 	public abstract double getFireRange();
 	public abstract int getFireDelay();
 	public abstract int getFireCoolDown();
 	public abstract int getTurretValue();
 	public abstract double getBulletSpeed();
-	public abstract Bullet createBullet(Point p);
-	
+	public abstract Bullet createBullet();
+	public abstract void setStartPosition(Point p);
+	public abstract Point getStartPosition() ;
 	
 	public void fireBullet() {
 		// create an instance of BulletOne
-		final Bullet b = createBullet(this.getPosition());
+		final Bullet b = createBullet();
+		
 		switch(turretNumber){
 		case 1:
 			b.setScale(1);
@@ -82,6 +84,7 @@ public abstract class Turret extends GSprite {
 			b.setScale(1);
 			break;
 		}
+		
 		b.setRotation(this.getRotation());
 		final ConstantMovementController c = ConstantMovementController
 				.createPolar(getBulletSpeed(), getRotation());
@@ -96,7 +99,6 @@ public abstract class Turret extends GSprite {
 		// move the bullets at a particular speed
 		this.snapAnchor(b);
 		b.moveAtAngle(getHeight() / 2 + 10, getRotation());
-
 		this.addSibling(b);
 	}
 	
@@ -107,5 +109,8 @@ public abstract class Turret extends GSprite {
 	public Point getPosition(){
 		return new Point((int)getX(), (int)getY());
 	}
+
+
+
 
 }

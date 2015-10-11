@@ -1,5 +1,7 @@
 package gamesrc;
 
+import java.awt.Point;
+
 import jgame.Context;
 import jgame.GObject;
 import jgame.ImageCache;
@@ -14,6 +16,7 @@ public class LevelOne extends GObject {
     private boolean settingTurret = false;
     private Bank lifeBank = new Bank(100);
     private Bank moneyBank = new Bank(200);
+    private Point turretStartLocation = null;
     
 	public LevelOne() {
 		setSize(1100, 900);
@@ -60,6 +63,7 @@ public class LevelOne extends GObject {
 			   target.removeController(c);
 			   rr.removeController(c);
 			   rr.removeSelf();
+			   ((Turret) target).setStartPosition(new Point((int)target.getX(),(int)target.getY()));
 			   target.removeListener(this);
 			   settingTurret = false;
 			   

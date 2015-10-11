@@ -23,7 +23,6 @@ public class PlayAreaOne<Vector2f> extends GContainer {
 //		List<Image> turretOneImages = ImageCache.forClass(TowerGame.class).getSequential(
 //       			"turrets2/t1/t1", 0, 9, ".png");
 		
-		//Vector2D v = new Vector2D(new Point(1,1));
 		final TimerListener EnemyTimer = new TimerListener(64) {
 			public void invoke(GObject target, Context context) {
 				initEnemy();
@@ -33,11 +32,9 @@ public class PlayAreaOne<Vector2f> extends GContainer {
 	}
 
 	public void initEnemy() {
-		List<Image> enemyImages = ImageCache.forClass(TowerGame.class).getSequential(
-				           											"enemies/terry/t", 0, 9, ".png");
+		List<Image> enemyImages = ImageCache.forClass(TowerGame.class).getSequential(				           											"enemies/terry/t", 0, 9, ".png");
 		Enemy e = new Enemy(enemyImages);
-		e.setScale(.95);
-		
+		e.setScale(.95);		
 		this.add(e);
 	}
 	

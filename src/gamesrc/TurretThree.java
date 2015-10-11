@@ -12,12 +12,14 @@ public class TurretThree extends Turret {
 	private int fireCoolDown = 24;
 	private double bulletSpeed = 12;
 	private int turretValue = 100;
+	private Point startPosition = null;
+	
 	public TurretThree(Image img) {
 		super(img, 3);
 	}
 
-	public Bullet createBullet(Point p){
-		  return new Bullet(ImageCache.getImage("bullets/b3.png"));
+	public Bullet createBullet(){
+		  return new BulletOne(ImageCache.getImage("bullets/b3.png"), new Point(this.getPosition()));
 	}
 
 
@@ -49,5 +51,13 @@ public class TurretThree extends Turret {
 	@Override
 	public int getTurretValue() {
 		return turretValue;
+	}
+	@Override
+	public void setStartPosition(Point p) {
+       startPosition = p;		
+	}
+	
+	public Point getStartPosition() {
+       return startPosition;		
 	}
 }

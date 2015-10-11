@@ -8,21 +8,20 @@ import jgame.ImageCache;
 public class TurretSix extends Turret {
 	
 	private int turretNumber = 6;
-	private double fireRange = 100;
+	private double fireRange = 500;
 	private int fireDelay = 0;
 	private int fireCoolDown = 24;
-	private double bulletSpeed = 12;
+	private double bulletSpeed = 33;
 	private int turretValue = 100;
+	private Point startPosition = null;
 	
 	public TurretSix(Image image) {
 		super(image, 6);
 	}
 
 	@Override
-	public Bullet createBullet(Point p) {
-
-		return new Bullet(ImageCache.getImage("bullets/b6.png"));
-
+	public Bullet createBullet(){
+		  return new BulletFive(ImageCache.getImage("bullets/b6.png"),  new Point(this.getPosition()));
 	}
 
 	@Override
@@ -54,4 +53,14 @@ public class TurretSix extends Turret {
 	public int getTurretValue() {
 		return turretValue;
 	}
+	@Override
+	public void setStartPosition(Point p) {
+       startPosition = p;		
+	}
+	
+
+	public Point getStartPosition() {
+       return startPosition;		
+	}
+	
 }
