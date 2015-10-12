@@ -43,7 +43,7 @@ public class PlayAreaOne<Vector2f> extends GContainer {
 	}
 	
 	public void createPanel(){
-		panel = new PopUpPanel(ImageCache.getImage("panels/pbg.png"), 1);
+		panel = new PopUpPanel(ImageCache.getImage("panels/p1.png"), 1);
 		addAtCenter(panel);
 	}
 

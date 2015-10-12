@@ -22,16 +22,17 @@ public class PopUpPanel extends GButton {
 	}
 
 	public void setPanel() {
-		GSprite none_img = new GSprite(ImageCache.getImage("panels/p1.png"));
-		GSprite hover_img = new GSprite(ImageCache.getImage("panels/p1.png"));
-		GSprite pressed_img = new GSprite(ImageCache.getImage("panels/p1.png"));
+		GSprite none_img = new GSprite(ImageCache.getImage("panels/pbg.png"));
+		GSprite hover_img = new GSprite(ImageCache.getImage("panels/pbg.png"));
+		GSprite pressed_img = new GSprite(ImageCache.getImage("panels/pbg.png"));
 
 		setStateSprite(ButtonState.NONE, none_img);
 		setStateSprite(ButtonState.HOVERED, hover_img);
 		setStateSprite(ButtonState.PRESSED, pressed_img);
 
 		GSprite panel = new GSprite(image);
-		panel.setScale(.8);
+		panel.setScaleX(1.0);
+		panel.setScaleY(1.1);
 		addAtCenter(panel);
 		
 		addListener(new ButtonListener(){

@@ -11,7 +11,7 @@ import jgame.listener.LocalClickListener;
 
 public class LevelOne extends GObject {
 
-	private PlayAreaOne playAreaOne = new PlayAreaOne();
+	public PlayAreaOne playAreaOne = new PlayAreaOne();
 	private MenuArea menuArea = new MenuArea();
 	private InfoArea infoArea = new InfoArea();
     private boolean settingTurret = false;
