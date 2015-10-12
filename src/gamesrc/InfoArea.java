@@ -31,9 +31,9 @@ public class InfoArea extends GContainer {
 	private void setInfoTile(int i) {
 		InfoTile infoTile = new InfoTile(tileImage, i);
 		infoTile.setAnchorTopLeft();
-		infoTile.setScale(.7);
-		infoTile.setX(12);
-		infoTile.setY(i * 125 + 30);
+		infoTile.setScale(.8);
+		infoTile.setX(18);
+		infoTile.setY(i * 125 + 35);
 		add(infoTile);
 	}
 

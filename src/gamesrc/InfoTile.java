@@ -23,19 +23,18 @@ public class InfoTile extends Tile {
 	public void setInfoTile(final int tileNumber) {
 
 		GSprite none_img = new GSprite(
-				ImageCache.getImage("buttons/infotile.png"));
+				ImageCache.getImage("buttons/b1.png"));
 		GSprite hover_img = new GSprite(
-				ImageCache.getImage("buttons/infotile.png"));
+				ImageCache.getImage("buttons/b2.png"));
 		GSprite pressed_img = new GSprite(
-				ImageCache.getImage("buttons/infotile.png"));
+				ImageCache.getImage("buttons/b3.png"));
 
 		setStateSprite(ButtonState.NONE, none_img);
 		setStateSprite(ButtonState.HOVERED, hover_img);
 		setStateSprite(ButtonState.PRESSED, pressed_img);
 
-		GSprite tileIcon = new GSprite(image);
-		// tileIcon.setScale(.3);
-		// addAtCenter(tileIcon);
+		//GSprite tileIcon = new GSprite(image);
+
 
 		addListener(new ButtonListener() {
 
