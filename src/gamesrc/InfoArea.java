@@ -1,9 +1,6 @@
 package gamesrc;
 
-import java.awt.Image;
 import java.awt.image.BufferedImage;
-import java.util.List;
-
 import jgame.GContainer;
 import jgame.GSprite;
 import jgame.ImageCache;
@@ -21,10 +18,6 @@ public class InfoArea extends GContainer {
 		for (int i = 0; i < MAX_INFO_TILES; i++) {
 			setInfoTile(i);
 		}
-		
-		
-	
-		
 	}
 	BufferedImage tileImage = ImageCache.getImage("buttons/infotile.png");
 
@@ -32,7 +25,7 @@ public class InfoArea extends GContainer {
 		InfoTile infoTile = new InfoTile(tileImage, i);
 		infoTile.setAnchorTopLeft();
 		infoTile.setScale(.8);
-		infoTile.setX(18);
+		infoTile.setX(12);
 		infoTile.setY(i * 125 + 35);
 		add(infoTile);
 	}

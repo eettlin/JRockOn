@@ -23,7 +23,7 @@ public class InfoTile extends Tile {
 	public void setInfoTile(final int tileNumber) {
 
 		GSprite none_img = new GSprite(
-				ImageCache.getImage("buttons/b1.png"));
+				ImageCache.getImage("buttons/rb1.png"));
 		GSprite hover_img = new GSprite(
 				ImageCache.getImage("buttons/b2.png"));
 		GSprite pressed_img = new GSprite(
@@ -41,6 +41,7 @@ public class InfoTile extends Tile {
 			@Override
 			public void mouseClicked(Context context) {
 				System.out.print(tileNumber);
+				getFirstAncestorOf(PlayAreaOne.class).createPanel();
 			}
 		});
 
