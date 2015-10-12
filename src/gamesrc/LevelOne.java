@@ -21,8 +21,10 @@ public class LevelOne extends GObject {
 	private boolean settingTurret = false;
 	private GSprite sprite;
 	private BufferedImage ss;
+	private int ssx, ssy;
 
 	public LevelOne() {
+		ssx = ssy = 0;
 		setSize(1100, 900);
 		// Set play area
 		playAreaOne.setAnchorTopLeft();
@@ -36,9 +38,8 @@ public class LevelOne extends GObject {
 		infoArea.setAnchorTopLeft();
 		infoArea.setLocation(1000, 0);
 		add(infoArea);
-
-		TimerListener tl = new TimerListener(20) {
-			
+        //  Test Sprite Sheet  +++++++++++++++++++++++++++++++
+		TimerListener tl = new TimerListener(15) {
 			public void invoke(GObject target, Context context) {
 				BufferedImageLoader loader = new BufferedImageLoader();
 				try {
@@ -46,22 +47,21 @@ public class LevelOne extends GObject {
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-				System.out.print(1);
 				SpriteSheet spriteSheet = new SpriteSheet(ss);
-				BufferedImage buffSprite = spriteSheet.getSprite(0, 0);
+				BufferedImage buffSprite = spriteSheet.getSprite(ssx, ssy);	
+				if(ssx == 0){
+				   ssy +=50;
+				}
+				ssx +=50;
+				if(ssx>50) ssx = 0;
+				if(ssy>50) ssy = 0;
 				BufferedImage bg = ImageCache.forClass(TowerGame.class).get("spritesheet.png");
-				sprite = new GSprite(bg);
-				
-				System.out.println("In Sprite = " + sprite);
+				sprite = new GSprite(buffSprite);
+				addAtCenter(sprite);
 			}
 		};
 		addListener(tl);
-		if (sprite != null) {
-			this.playAreaOne.addAtCenter(sprite);
-		} else {
-			System.out.println("Out Sprite = " + sprite);
-		}
-
+		 //  End Test Sprite Sheet  +++++++++++++++++++++++++++++++
 	}
 
 	public void initializeTurret(int tn) {
