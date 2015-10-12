@@ -1,10 +1,12 @@
 package gamesrc;
 
+import java.awt.Color;
 import java.awt.Image;
 
 import jgame.ButtonState;
 import jgame.Context;
 import jgame.GButton;
+import jgame.GMessage;
 import jgame.GSprite;
 import jgame.ImageCache;
 import jgame.listener.ButtonListener;
@@ -19,6 +21,7 @@ public class PopUpPanel extends GButton {
 		setPanelNumber(pn);
         setSize(440, 190);
 		setPanel();	
+		//addGMessge();
 	}
 
 	public void setPanel() {
@@ -33,18 +36,25 @@ public class PopUpPanel extends GButton {
 		GSprite panel = new GSprite(image);
 		panel.setScaleX(1.0);
 		panel.setScaleY(1.1);
-		addAtCenter(panel);
+		addAtCenter(panel); //  adds front
 		
 		addListener(new ButtonListener(){
 			@Override
 			public void mouseClicked(Context context){
-				//getFirstAncestorOf(PlayAreaOne.class ).addPanel(panelNumber);
 				removeSelf();
-			}
-			
+			}		
 		});
+		
 	}
 
+	 public void addGMessge(){
+		 GMessage gm = new GMessage();
+		 gm.setFontSize(36);
+		 gm.setColor(Color.red);
+		 gm.setText("" + getPanelNumber());
+		 addAtCenter(gm);
+	 
+	 }
 	public int getPanelNumber() {
 		return panelNumber;
 	}

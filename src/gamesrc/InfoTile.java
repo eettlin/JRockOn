@@ -36,7 +36,7 @@ public class InfoTile extends Tile {
 
 			@Override
 			public void mouseClicked(Context context) {
-				getFirstAncestorOf(LevelOne.class).playAreaOne.createPanel();
+				getFirstAncestorOf(LevelOne.class).playAreaOne.createPanel(tileNumber);
 			}
 		});
 
