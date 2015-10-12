@@ -1,10 +1,8 @@
 package gamesrc;
 
 import java.awt.Image;
-import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.util.List;
-import java.lang.Cloneable.*;
 import jgame.Context;
 import jgame.GContainer;
 import jgame.GObject;
@@ -20,10 +18,6 @@ public class PlayAreaOne<Vector2f> extends GContainer {
 		GSprite gs = new GSprite(bg);
 		setBackgroundSprite(gs);
 
-//		List<Image> turretOneImages = ImageCache.forClass(TowerGame.class).getSequential(
-//       			"turrets2/t1/t1", 0, 9, ".png");
-		
-		//Vector2D v = new Vector2D(new Point(1,1));
 		final TimerListener EnemyTimer = new TimerListener(64) {
 			public void invoke(GObject target, Context context) {
 				initEnemy();
