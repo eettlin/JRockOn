@@ -65,7 +65,7 @@ public abstract class Turret extends GSprite {
 			break;
 		case 2:
 			b.setScale(.3);
-	        ConstantRotationController clc = new ConstantRotationController(42);
+	        ConstantRotationController clc = new ConstantRotationController(22);
 	        b.addController(clc);
 			break;
 		case 3:

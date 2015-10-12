@@ -6,8 +6,9 @@ import java.awt.Graphics2D;
 
 import jgame.GButton;
 import jgame.GObject;
+import jgame.GSprite;
 
-public class RangeRing extends GButton {
+public class RangeRing extends GSprite {
 	private double radius = 0;
 
 	public RangeRing(double radius) {

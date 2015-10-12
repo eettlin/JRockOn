@@ -18,12 +18,11 @@ public class BulletOne extends Bullet {
 		currentPosition = p;
 		this.addListener(new FrameListener() {
 			public void invoke(GObject target, Context context) {
-				if (getDistanceFromStart() > 200) {
+				if (getDistanceFromStart(startPosition, getCurrentPosition())  > 200) {
 					target.removeSelf(); 
 				}
 			}
 		});
-
 	}
 
 	public void setStartPosition(Point p) {
@@ -33,18 +32,6 @@ public class BulletOne extends Bullet {
 	public Point getCurrentPosition() {
 		currentPosition.setLocation((int) this.getX(), (int) this.getY());
 		return currentPosition;
-	}
-
-	public double getDistanceFromStart() {
-		double dx = startPosition.getX() - getCurrentPosition().getX();
-		double dy = startPosition.getY() - getCurrentPosition().getY();
-
-		double d = Math.sqrt(dx * dx + dy * dy);
-		return d;
-	}
-
-	public Point getStartPosition() {
-		return startPosition;
 	}
 
 }

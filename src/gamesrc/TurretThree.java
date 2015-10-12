@@ -7,7 +7,7 @@ import jgame.ImageCache;
 
 public class TurretThree extends Turret {
 	private int turretNumber = 1;
-	private double fireRange = 300;
+	private double fireRange = 500;
 	private int fireDelay = 0;
 	private int fireCoolDown = 24;
 	private double bulletSpeed = 12;
@@ -19,7 +19,9 @@ public class TurretThree extends Turret {
 	}
 
 	public Bullet createBullet(){
-		  return new BulletOne(ImageCache.getImage("bullets/b3.png"), new Point(this.getPosition()));
+		  Bullet b = new BulletOne(ImageCache.getImage("bullets/b3.png"),  new Point(this.getPosition()));
+		  b.setStartPosition(this.getPosition());
+		  return  b;
 	}
 
 

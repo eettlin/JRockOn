@@ -70,15 +70,6 @@ public class LevelOne extends GObject {
 			}
 		};
 		t.addListener(dropListener);
-		//  +++++++++++++++++++++++++++++++++++++++++++++++  Doesnt work
-		rr.addListener(new ButtonListener(){
-			@Override
-			public void mouseOver(Context context){
-				//getFirstAncestorOf(LevelOne.class ).initializeTurret(turretNumber);
-				rr.setVisible(true);
-			}
-			
-		});
 		
 	}
 

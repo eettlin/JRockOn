@@ -23,9 +23,13 @@ public abstract class Bullet extends GSprite {
 	}
 	// abstract methods
 	public abstract void setStartPosition(Point p);
-	public abstract Point getStartPosition();
 	public abstract Point getCurrentPosition();//  we don't need this
-	public abstract double getDistanceFromStart();
+	public double getDistanceFromStart(Point p1, Point p2) {
+		double dx = p1.getX() - p2.getX();
+		double dy = p1.getY() - p2.getY();
 
+		double d = Math.sqrt(dx * dx + dy * dy);
+		return d;
+	}
 
 }
