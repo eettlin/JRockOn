@@ -11,6 +11,7 @@ import jgame.listener.FrameListener;
 public class BulletOne extends Bullet {
 	private Point startPosition = null;
 	private Point currentPosition = null;
+	private int fireRange = 200;
 
 	public BulletOne(Image image, Point p) {
 		super(image);
@@ -18,7 +19,7 @@ public class BulletOne extends Bullet {
 		currentPosition = p;
 		this.addListener(new FrameListener() {
 			public void invoke(GObject target, Context context) {
-				if (getDistanceFromStart(startPosition, getCurrentPosition())  > 200) {
+				if (getDistanceFromStart(startPosition, getCurrentPosition())  > fireRange) {
 					target.removeSelf(); 
 				}
 			}
