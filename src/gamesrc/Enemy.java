@@ -31,37 +31,35 @@ public abstract class Enemy extends GSprite {
 		hb.setHealthPercentage(1);
 
 	
-		int[] x = new int[] { 0, 100, 125, 150, 175, 200, 225, 250, 275, 300,
-				325, 350, 375, 400, 425, 450, 475, 500, 525, 550, 575, 600,
-				625, 650, 675, 700, 725, 750, 775, 800, 825, 850, 875, 900,
-				1100, 1200 };
-		int[] y = new int[] { 0, 100, 125, 150, 175, 200, 225, 250, 275, 300,
-				325, 350, 375, 400, 425, 450, 475, 500, 525, 550, 575, 600,
-				625, 650, 675, 700, 725, 750, 775, 800, 825, 850, 875, 900,
-				1100, 1200 };
-		Polygon p = new Polygon(x, y, 35);
-		final PolygonController pc = new PolygonController(p);
+		int[] x = new int[] { 1, 26, 51, 77, 102, 127, 152, 177, 202, 227, 251, 277, 
+				302, 327, 353, 378, 404, 430, 456, 481, 507, 532, 557, 582, 606, 628, 
+				647, 661, 673, 680, 681, 679, 673, 664, 651, 632, 612, 590, 565, 540, 
+				515, 490, 464, 438, 412, 387, 362, 337, 312, 289, 267, 247, 229, 219, 
+				220, 230, 244, 258, 275, 293, 313, 333, 354, 376, 399, 424, 449, 474, 
+				500, 527, 553, 579, 605, 631, 656, 682, 707, 732, 758, 784, 809, 835, 
+				860, 885, 911, 936, 962, 987, 1013, 1050 };
+		int[] y = new int[] { 150, 152, 149, 145, 138, 131, 122, 113, 104, 94, 85, 77, 
+				70, 64, 58, 53, 49, 46, 45, 44, 43, 48, 53, 59, 67, 79, 97, 119, 141, 
+				166, 191, 216, 241, 265, 287, 305, 321, 333, 341, 346, 350, 353, 356, 
+				358, 362, 367, 374, 382, 390, 401, 414, 430, 449, 472, 498, 522, 544, 
+				565, 584, 602, 619, 635, 649, 662, 673, 681, 686, 692, 695, 695, 695, 
+				695, 693, 689, 684, 679, 673, 668, 663, 658, 655, 652, 649, 646, 642, 
+				639, 637, 634, 634, 700 };
+		Polygon p = new Polygon(x, y, 90);
+		PolygonController pc = new PolygonController(p);
 
 		pc.goToStart(this);
 		pc.setRotateToFollow(true);
 		addController(pc);
 		this.setAnchorCenter();
-		
-		
-
 	}
 
 	public abstract double getSlowness();
 	public abstract int getCurrentHealth();
 	public abstract void setCurrentHealth(int i);
 	public abstract void setStartHealth(int startHealth);
-
-	// public abstract double getMaxBytes();
-
 	// public abstract int getReward();
-
 	// public abstract boolean slowVulnerable();
-
 	// public abstract boolean turretDestroy();
 
 }

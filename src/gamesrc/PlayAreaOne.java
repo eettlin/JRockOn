@@ -17,7 +17,7 @@ public class PlayAreaOne<Vector2f> extends GContainer {
 	private PopUpPanel panel;
 	public PlayAreaOne() {
 		setSize(1000, 800);
-		BufferedImage bg = ImageCache.forClass(TowerGame.class).get("bg2b.png");
+		BufferedImage bg = ImageCache.forClass(TowerGame.class).get("backgrounds/bg22.png");
 		GSprite gs = new GSprite(bg);
 		setBackgroundSprite(gs);
 

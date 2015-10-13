@@ -6,6 +6,6 @@ import jgame.ImageCache;
 public class MenuBackground extends GSprite {
 	
 	public MenuBackground() {
-		super(ImageCache.getImage("menubgd.png"));
+		super(ImageCache.getImage("bg88.png"));
 	}
 }
