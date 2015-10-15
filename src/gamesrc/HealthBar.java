@@ -21,17 +21,20 @@ public class HealthBar extends GObject {
 		g.fillRect(0, 0, getIntWidth(), getIntHeight());
 
 		float hbHue = (float) Math.pow(healthPercentage, 2) / 3f;
-		g.setColor(Color.getHSBColor(hbHue, 1f, 1f));
+		g.setColor(Color.getHSBColor(hbHue, 1f, 5f));
 		g.fillRect(BORDER, BORDER, (int) ((getWidth() * healthPercentage) - BORDER * 2),
 				getIntHeight() - BORDER * 2);
 	}
 
+	
 	public double getHealthPercentage() {
 		return healthPercentage;
 	}
 
 	public void setHealthPercentage(double healthPercentage) {
 		this.healthPercentage = healthPercentage;
+		
+
 	}
 
 }

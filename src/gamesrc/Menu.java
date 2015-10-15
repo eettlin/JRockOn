@@ -11,6 +11,7 @@ import jgame.GContainer;
 import jgame.GMessage;
 import jgame.GSprite;
 import jgame.ImageCache;
+import jgame.SoundManager;
 import jgame.listener.ButtonListener;
 
 public class Menu extends GContainer {
@@ -19,7 +20,7 @@ public class Menu extends GContainer {
 		setSize(1100, 900);
 		MenuBackground mbg = new MenuBackground();
 		addAtCenter(mbg);
-		
+		//SoundManager.forClass(TowerGame.class).loopForever("sounds/truman.ogg");
 		GSprite none_img = new GSprite(ImageCache.getImage("buttons/btn.png"));
 		GSprite hover_img = new GSprite(ImageCache.getImage("buttons/bhb.png"));
 		GSprite pressed_img = new GSprite(ImageCache.getImage("buttons/bpb.png"));

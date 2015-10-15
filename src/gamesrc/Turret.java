@@ -7,6 +7,7 @@ import java.util.List;
 import jgame.Context;
 import jgame.GObject;
 import jgame.GSprite;
+import jgame.SoundManager;
 import jgame.controller.ConstantMovementController;
 import jgame.controller.ConstantRotationController;
 import jgame.listener.DelayListener;
@@ -37,7 +38,7 @@ public abstract class Turret extends GSprite {
 					}
 				}
 
-				if (coolDown-- < 0 && isSet) {
+				if (coolDown-- < 0 && isSet && closestDistance < ((Turret) target).getFireRange()) {
 					fireBullet();
 					coolDown = 24;
 				}
@@ -100,6 +101,7 @@ public abstract class Turret extends GSprite {
 		this.snapAnchor(b);
 		b.moveAtAngle(getHeight() / 2 + 10, getRotation());
 		this.addSibling(b);
+		SoundManager.forClass(TowerGame.class).play("axe.wav");
 	}
 	
 	public void setIsSet(boolean isSet){

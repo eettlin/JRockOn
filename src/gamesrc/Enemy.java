@@ -16,7 +16,7 @@ public abstract class Enemy extends GSprite {
 	private double maxHealth;
 	private double currentHealth;
 	private int moneyValue;
-	private HealthBar hb = new HealthBar();
+	public HealthBar hb = new HealthBar();
 	
 	public Enemy(List<Image> images, double maxHlth, int moneyValue ) {
 		super(images);
@@ -55,9 +55,10 @@ public abstract class Enemy extends GSprite {
 	}
 
 	public abstract double getSlowness();
-	public abstract int getCurrentHealth();
+	public abstract double getCurrentHealth();
 	public abstract void setCurrentHealth(int i);
 	public abstract void setStartHealth(int startHealth);
+	public abstract double getMaxHealth();
 	// public abstract int getReward();
 	// public abstract boolean slowVulnerable();
 	// public abstract boolean turretDestroy();

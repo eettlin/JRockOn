@@ -21,7 +21,7 @@ public class RangeRing extends GSprite {
 		super.paint(g);
 		// g is a graphics context
 		// build a white circle with 50% opacity
-		g.setColor(new Color(1.0f, 1.0f, 1.0f, 0.5f));
+		g.setColor(new Color(1.0f, .9f, 0.9f, 0.5f));
 		//  draw (outline) it we would set the stroke as follows:
 		BasicStroke bs = new BasicStroke(2);
 		g.setStroke(bs);

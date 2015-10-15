@@ -18,7 +18,7 @@ public class EnemyOne extends Enemy {
 		currentHealth = startHealth;
 		FrameListener fl = new FrameListener() {
 			public void invoke(GObject target, Context context) {
-				if(getCurrentHealth() < 0) removeSelf();
+				//if(getCurrentHealth() < 0) removeSelf();
 			}
 		};
 		addListener(fl);
@@ -28,7 +28,7 @@ public class EnemyOne extends Enemy {
 		return 0;
 	}
 
-	public int getCurrentHealth() {
+	public double getCurrentHealth() {
 		return currentHealth;
 	}
 
@@ -38,6 +38,11 @@ public class EnemyOne extends Enemy {
 
 	public void setStartHealth(int startHealth) {
 		this.startHealth = startHealth;
+	}
+
+	@Override
+	public double getMaxHealth() {
+		return startHealth;
 	}
 
 }

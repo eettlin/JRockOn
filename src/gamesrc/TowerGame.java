@@ -6,11 +6,13 @@ import java.awt.Point;
 import jgame.GRootContainer;
 import jgame.Game;
 import jgame.ImageCache;
+import jgame.SoundManager;
 
 public class TowerGame extends Game {
 
 	public static void main(String[] args) {
 		ImageCache.create(TowerGame.class, "/rsc/");
+		SoundManager.create(TowerGame.class, "/rsc/sounds/");
         TowerGame tg = new TowerGame();
         tg.startGame();
 	}

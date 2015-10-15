@@ -12,7 +12,7 @@ import jgame.listener.FrameListener;
 import jgame.listener.HitTestListener;
 
 public abstract class Bullet extends GSprite {
-    private int bulletPoints = 35;
+    private int bulletPoints = 5;
 	public Bullet(Image image) {
 		super(image);
 		addListener(new BoundaryRemovalListener());
@@ -31,12 +31,13 @@ public abstract class Bullet extends GSprite {
 				List<Enemy> enemies = context.hitTestClass(Enemy.class);
 				// SoundManager.forClass(TowerGame.class).play("bink.wav");
 				for (Enemy enemy : enemies) {
-					enemy.setCurrentHealth(enemy.getCurrentHealth() - bulletPoints);
-					System.out.println("Current Health  =" + enemy.getCurrentHealth());
-					if(enemy.getCurrentHealth() <= 0) {
-						//enemy.removeSelf();
-						System.out.println("____");
-						target.removeSelf();// remove the bullet if hit enemy
+					enemy.setCurrentHealth((int) (enemy.getCurrentHealth() - bulletPoints));
+					enemy.hb.setHealthPercentage( (double)(enemy.getCurrentHealth()/enemy.getMaxHealth()));
+					target.removeSelf();  // remove the bullet if hit enemy
+					if(enemy.getCurrentHealth() <= 0) {						
+						enemy.removeSelf();
+						
+						
 					}
 				}	
 			}
